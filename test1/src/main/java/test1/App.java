@@ -9,15 +9,17 @@ public class App {
 	public static void main(String[] args) {
 		
 		//Spring Container
-		//ApplicationContext context = new FileSystemXmlApplicationContext("/src/main/java/test1/beans/beans.xml");
 		ApplicationContext context = new ClassPathXmlApplicationContext("test1/beans/beans.xml");
 		
 		Person person = (Person) context.getBean("person");
 		person.speak();
 		
-		System.out.println(person);
+		Address address = (Address) context.getBean("address");
 		
-		//((ClassPathXmlApplicationContext)context).close();
+		System.out.println(person);
+		System.out.println(address);
+		
+		((ClassPathXmlApplicationContext)context).close();
 		
 		
 	}

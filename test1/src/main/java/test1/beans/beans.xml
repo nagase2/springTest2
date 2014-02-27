@@ -4,5 +4,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<bean id="person" class="test1.Person"></bean>
+	<bean id="person" class="test1.Person" scope="singleton">
+		<constructor-arg value="777" name="id" type="int"></constructor-arg>
+		<constructor-arg value="Mary" name="name" type="String"></constructor-arg>
+		<property name="taxId" value="3444"></property>
+		<property name="address" ref="address"></property>
+	</bean>
+
+	<bean id="address" class="test1.Address">
+		<constructor-arg value="Kim Seng Walk" name="street"></constructor-arg>
+		<constructor-arg value="222" name="postcode"></constructor-arg>
+	</bean>
 </beans>
